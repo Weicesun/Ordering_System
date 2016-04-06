@@ -5,10 +5,18 @@ function mainController($scope, $http) {
 		name:'',
 		price: 0
 	};
+	$scope.total = 0;
 	$scope.formValueData = {};
 	$http.get('/api/food')
 		.success(function(data) {
 			$scope.food = data;
+		})
+		.error(function(data) {
+			console.log('Error: ' + data);
+		});
+	$http.get('/api/total')
+		.success(function(data) {
+			$scope.total = data;
 		})
 		.error(function(data) {
 			console.log('Error: ' + data);
@@ -35,5 +43,13 @@ function mainController($scope, $http) {
 				console.log('Error: ' + data);
 			});
 	};
-
+	$scope.calculatePrice = function() {
+       $http.get('/api/total')
+		.success(function(data) {
+			$scope.total = data;
+		})
+		.error(function(data) {
+			console.log('Error: ' + data);
+		});
+	};
 }

@@ -13,6 +13,25 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get('/api/total', function(req, res) {
+
+		Food.find(function(err, food) {
+			if (err) {
+				res.send(err)
+			}
+			var subtotal = 0;
+			var total = 0;
+			food.forEach(function(deal, index){
+				subtotal += deal.price;
+			});
+			//for (var i = 0; i < food.length; i++) {
+			//	subtotal += food.get(i).price;
+			//}
+			total = subtotal * 1.075;
+			res.json(total); // return all food in JSON format
+		});
+	});
+
 	
 	app.post('/api/food', function(req, res) {
 
@@ -52,6 +71,8 @@ module.exports = function(app) {
 			});
 		});
 	});
+
+
 
 
 	app.get('*', function(req, res) {

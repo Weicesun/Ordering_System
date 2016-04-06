@@ -28,7 +28,7 @@
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
-			<h1>Welcome to food system total <span class="label label-info">{{ food.length }}$</span></h1>
+			<h1>Welcome to food system total <span class="label label-info">{{ total | currency}}</span></h1>
 		</div>
 
 
@@ -58,6 +58,7 @@
 					</div>
 
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createFood()">Add</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="calculatePrice()">Total</button>
 				</form>
 			</div>
 		</div>
