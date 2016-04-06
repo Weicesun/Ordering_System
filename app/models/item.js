@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Food', {
-	text : String
+	name: String,
+	price: Number
 	//done : Boolean	
 });

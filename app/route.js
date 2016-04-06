@@ -17,9 +17,9 @@ module.exports = function(app) {
 	app.post('/api/food', function(req, res) {
 
 		Food.create({
-			name : req.body.text
-			//done : false
-		}, function(err, todo) {
+			name : req.body.name,
+			price: req.body.price
+		}, function(err, food) {
 			if (err) {
 				res.send(err);
 			}

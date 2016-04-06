@@ -31,14 +31,13 @@
 			<h1>Welcome to food system total <span class="label label-info">{{ food.length }}$</span></h1>
 		</div>
 
-		<!-- TODO LIST -->
+
 		<div id="food-list" class="row">
 			<div class="col-sm-4 col-sm-offset-4">
 
-				<!-- LOOP OVER THE TODOS IN $scope.todos -->
 				<div class="checkbox" ng-repeat="item in food">
 					<label>
-						<input type="checkbox" ng-click="deleteFood(item._id)"> {{ item.text }}
+						<input type="checkbox" ng-click="deleteFood(item._id)"> {{ item.name}} {{ item.price | currency}}
 					</label>
 				</div>
 
@@ -52,7 +51,10 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="fresh every day" ng-model="formData.text">
+						<input type="text" class="form-control input-lg text-center" placeholder="item you want" ng-model="formData.name">						
+					</div>
+					<div class="form-group">
+						<input type="number" class="form-control input-lg text-center" placeholder="price $" ng-model="formData.price">
 					</div>
 
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createFood()">Add</button>

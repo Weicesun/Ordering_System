@@ -1,8 +1,11 @@
 var foodList = angular.module('foodList', []);
 
 function mainController($scope, $http) {
-	$scope.formData = {};
-
+	$scope.formData = {
+		name:'',
+		price: 0
+	};
+	$scope.formValueData = {};
 	$http.get('/api/food')
 		.success(function(data) {
 			$scope.food = data;
